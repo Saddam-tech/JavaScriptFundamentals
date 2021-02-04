@@ -238,3 +238,42 @@ const gameEvents = new Map([
   [80, '⚽️ GOAL'],
   [92, '🔶 Yellow card'],
 ]);
+
+//1.
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+
+//2.
+gameEvents.delete(64);
+console.log(...gameEvents);
+
+//3.
+console.log(
+  `An event happened, on average, every ${90 / gameEvents.size} minutes`
+);
+
+const time = [...gameEvents.keys()].pop();
+console.log(time);
+console.log(
+  `An event happened, on average, every ${time / gameEvents.size} minutes`
+);
+
+//4.
+//[FIRST HALF] 17: ⚽️ GOAL
+
+//My solution
+
+// for (const [key, value] of gameEvents.entries()) {
+//   console.log(
+//     key <= 45
+//       ? `[FIRST HAlF] ${key}: ${value}`
+//       : `[SECOND HALF] ${key}: ${value}`
+//   );
+// }
+
+//Jonas` solution
+
+for (const [key, value] of gameEvents.entries()) {
+  const half = key <= 45 ? 'FIRST' : 'SECOND';
+  console.log(`[${half} HALF] ${key}: ${value}`);
+}
