@@ -225,38 +225,38 @@ const game = {
 // console.log(answer);
 // console.log(question.get(answer === 3));
 
-const gameEvents = new Map([
-  [17, '⚽️ GOAL'],
-  [36, '🔁 Substitution'],
-  [47, '⚽️ GOAL'],
-  [61, '🔁 Substitution'],
-  [64, '🔶 Yellow card'],
-  [69, '🔴 Red card'],
-  [70, '🔁 Substitution'],
-  [72, '🔁 Substitution'],
-  [76, '⚽️ GOAL'],
-  [80, '⚽️ GOAL'],
-  [92, '🔶 Yellow card'],
-]);
+// const gameEvents = new Map([
+//   [17, 'GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽️ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, '🔶 Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽️ GOAL'],
+//   [80, '⚽️ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
 
-//1.
-const events = [...new Set(gameEvents.values())];
-console.log(events);
+// //1.
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
 
-//2.
-gameEvents.delete(64);
-console.log(...gameEvents);
+// //2.
+// gameEvents.delete(64);
+// console.log(...gameEvents);
 
-//3.
-console.log(
-  `An event happened, on average, every ${90 / gameEvents.size} minutes`
-);
+// //3.
+// console.log(
+//   `An event happened, on average, every ${90 / gameEvents.size} minutes`
+// );
 
-const time = [...gameEvents.keys()].pop();
-console.log(time);
-console.log(
-  `An event happened, on average, every ${time / gameEvents.size} minutes`
-);
+// const time = [...gameEvents.keys()].pop();
+// console.log(time);
+// console.log(
+//   `An event happened, on average, every ${time / gameEvents.size} minutes`
+// );
 
 //4.
 //[FIRST HALF] 17: ⚽️ GOAL
@@ -273,7 +273,31 @@ console.log(
 
 //Jonas` solution
 
-for (const [key, value] of gameEvents.entries()) {
-  const half = key <= 45 ? 'FIRST' : 'SECOND';
-  console.log(`[${half} HALF] ${key}: ${value}`);
-}
+// for (const [key, value] of gameEvents.entries()) {
+//   const half = key <= 45 ? 'FIRST' : 'SECOND';
+//   console.log(`[${half} HALF] ${key}: ${value}`);
+// }
+
+// const airline = 'Tap Air Portugal';
+
+// console.log(airline.toUpperCase());
+// console.log(airline.toLowerCase());
+
+const me = 'All passengers come to boarding door 23. Boarding door 23!';
+
+// const correct = me.toLowerCase();
+
+// console.log(correct[0].toUpperCase() + me.toLowerCase().slice(1));
+
+// const myEmail = 'salokhiddinov0727@gmail.com';
+
+// const wrongEmail = '  SalokhiDDinov0727@gmail.Com';
+
+// const trueVersion = wrongEmail.toLowerCase().trim();
+// console.log(trueVersion);
+
+// console.log(myEmail === trueVersion);
+
+const newMe = me.replaceAll('door', 'gate');
+
+console.log(newMe);
