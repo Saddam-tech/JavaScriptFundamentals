@@ -283,21 +283,110 @@ const game = {
 // console.log(airline.toUpperCase());
 // console.log(airline.toLowerCase());
 
-const me = 'All passengers come to boarding door 23. Boarding door 23!';
+// const me = 'All passengers come to boarding door 23. Boarding door 23!';
 
-// const correct = me.toLowerCase();
+// // const correct = me.toLowerCase();
 
-// console.log(correct[0].toUpperCase() + me.toLowerCase().slice(1));
+// // console.log(correct[0].toUpperCase() + me.toLowerCase().slice(1));
 
-// const myEmail = 'salokhiddinov0727@gmail.com';
+// // const myEmail = 'salokhiddinov0727@gmail.com';
 
-// const wrongEmail = '  SalokhiDDinov0727@gmail.Com';
+// // const wrongEmail = '  SalokhiDDinov0727@gmail.Com';
 
-// const trueVersion = wrongEmail.toLowerCase().trim();
-// console.log(trueVersion);
+// // const trueVersion = wrongEmail.toLowerCase().trim();
+// // console.log(trueVersion);
 
-// console.log(myEmail === trueVersion);
+// // console.log(myEmail === trueVersion);
 
-const newMe = me.replaceAll('door', 'gate');
+// const newMe = me.replaceAll('door', 'gate');
 
-console.log(newMe);
+// console.log(newMe);
+
+// const checker = function (items) {
+//   const baggage = items.toLowerCase();
+//   if (
+//     baggage.includes('knife') ||
+//     baggage.includes('gun') ||
+//     baggage.includes('alcohol')
+//   ) {
+//     console.log('You are out!');
+//   } else {
+//     console.log('Have a nice flight!');
+//   }
+// };
+
+// checker('I have some food, pocket knife, real knife, gun and my laptop');
+
+// checker('I have food, beverage, laptop, and books');
+
+// const name = 'jessica ann smith davis';
+// console.log(name);
+// console.log(name.split(''));
+
+// const maskCreditCard = function (number) {
+//   const str = number + '';
+//   const last = str.slice(-4);
+//   const mask = last.padStart(str.length, '*');
+//   return mask;
+// };
+
+// console.log(maskCreditCard(234345413564));
+
+// THIS TEST DATA (pasted to textarea)
+// underscore_case
+// first_name
+// Some_Variable
+// calculate_AGE
+// delayed_departure
+
+// SHOULD PRODUCE THIS OUTPUT (5 separate console.log outputs)
+// underscoreCase      ✅
+// firstName           ✅✅
+// someVariable        ✅✅✅
+// calculateAge        ✅✅✅✅
+// delayedDeparture    ✅✅✅✅✅
+
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+// document.querySelector('button').addEventListener('click', converter);
+// const converter = function (text) {
+//   const dividedText = text.split(' ');
+
+//   for (const value of dividedText.values()) {
+//     const divide = value.toLowerCase().trim().split('_');
+//     const toUpper = divide[1].toUpperCase().slice(0, 1);
+//     const full = divide[1].slice(1);
+//     return `${divide[0], toUpper, full}`
+//   }
+// };
+
+// console.log(converter('underscore_caSe'));
+
+// document.querySelector('button').addEventListener('click', function () {
+//   const newText = document.querySelector('textarea').value;
+//   const rows = newText.split('\n');
+
+//   for (const [i, row] of rows.entries()) {
+//     const [first, second] = row.toLowerCase().trim().split('_');
+//     const output = `${first}${second.replace(
+//       second[0],
+//       second[0].toUpperCase()
+//     )}`;
+//     console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+//   }
+// });
+
+const getCode = str => str.slice(0, 3).toUpperCase();
+
+const flights =
+  '_Delayed_Departure;fao234293847;txl23492837;11:25+_Arrival;bru09283745;fao293840345;11:45+_Delayed_Arrival;hel7439299980;dao023948753;12:05+_Departure;fao028023423;lis309485309458;12:30';
+
+for (const flight of flights.split('+')) {
+  const [type, from, to, time] = flight.split(';');
+
+  const output = `
+  ${type.replaceAll('_', ' ')} from ${getCode(from)} to ${getCode(
+    to
+  )} ${time.replace(':', 'h')}`;
+  console.log(output.padStart(36, ' '));
+}
